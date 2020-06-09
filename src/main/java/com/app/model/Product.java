@@ -1,9 +1,6 @@
 package com.app.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Product {
@@ -17,6 +14,9 @@ public class Product {
     private String description;
 
     private int price;
+
+    @ManyToOne
+    private Market market;
 
     public Product(){
 
@@ -58,6 +58,14 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public Market getMarket() {
+        return market;
+    }
+
+    public void setMarket(Market market) {
+        this.market = market;
     }
 
     @Override
