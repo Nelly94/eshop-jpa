@@ -12,7 +12,7 @@ public class Application {
     public static void main(String[] args){
         AnnotationConfigApplicationContext conf = new AnnotationConfigApplicationContext(AppConf.class);
 
-        ProductDaoImpl productDao = new ProductDaoImpl();
+        ProductDao productDao = conf.getBean(ProductDao.class);
         productDao.create(new Product("white"));
         productDao.create(new Product("kinder"));
         List<Product> products = productDao.findAll();
